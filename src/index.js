@@ -1,23 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
-import './index.css';
+import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from 'components/GlobalStyle';
+import { Example1 } from 'components/Example1';
+import { Reader } from 'components/Reader/Reader';
+import './index.css';
+import publications from './publications.json';
 
-const theme = {
-  colors: {
-    black: 'black',
-    white: 'white',
-    accent: 'tomato',
-    error: 'orangered',
-    success: 'green',
-  },
-};
+const theme = {};
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <GlobalStyle />
+      {/* <Reader items={publications} /> */}
+      <Example1 />
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
